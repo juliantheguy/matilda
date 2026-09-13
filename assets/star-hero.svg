@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Star hero</title>
+  <desc id="desc">An original public-domain-dedicated illustration of a brave star-powered hero.</desc>
+  <metadata>Original artwork dedicated to the public domain.</metadata>
+  <circle cx="120" cy="120" r="112" fill="#e9b936" stroke="#17202a" stroke-width="8"/>
+  <path d="M120 30l21 54 58 4-45 37 15 57-49-31-49 31 15-57-45-37 58-4z" fill="#d74739" stroke="#17202a" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M92 108q28-25 56 0v52H92z" fill="#2d73b9" stroke="#17202a" stroke-width="7"/>
+  <path d="M105 120h30M105 134h30" stroke="#fff9ed" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="105" cy="98" r="7" fill="#fff9ed"/><circle cx="135" cy="98" r="7" fill="#fff9ed"/>
+</svg>

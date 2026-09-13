@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matilda's Hero Hangout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="intro">
+        <div class="stamp" aria-hidden="true">KAPOW!</div>
+        <p class="eyebrow">Welcome to the</p>
+        <h1>Matilda's Hero Hangout</h1>
+        <p class="lede">Build your team, then start an adventure.</p>
+      </header>
+
+      <section class="chooser screen is-visible" id="hero-screen" aria-labelledby="chooser-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 01 / 06</p>
+            <h2 id="chooser-title">Who are you today?</h2>
+          </div>
+          <span class="counter" id="counter">0 / 1 picked</span>
+        </div>
+
+        <div class="hero-grid">
+          <button class="hero-card spider" type="button" data-hero="Spider-Man" aria-pressed="false">
+            <span class="card-number">01</span>
+            <span class="hero-art spider-art" aria-hidden="true"><span>✦</span></span>
+            <span class="hero-name">Spider-Man</span>
+            <span class="hero-power">Wall-crawling wonder</span>
+            <span class="pick-label">Choose me</span>
+          </button>
+
+          <button class="hero-card wonder" type="button" data-hero="Wonder Woman" aria-pressed="false">
+            <span class="card-number">02</span>
+            <span class="hero-art wonder-art" aria-hidden="true"><span>★</span></span>
+            <span class="hero-name">Wonder Woman</span>
+            <span class="hero-power">Brave and unstoppable</span>
+            <span class="pick-label">Choose me</span>
+          </button>
+
+          <button class="hero-card hulk" type="button" data-hero="The Hulk" aria-pressed="false">
+            <span class="card-number">03</span>
+            <span class="hero-art hulk-art" aria-hidden="true"><span>✹</span></span>
+            <span class="hero-name">The Hulk</span>
+            <span class="hero-power">Super-strength smash</span>
+            <span class="pick-label">Choose me</span>
+          </button>
+        </div>
+
+        <div class="selection-message" id="selection-message" role="status" aria-live="polite">
+          <span class="message-icon" aria-hidden="true">?</span>
+          <span>Choose a hero to start your story.</span>
+        </div>
+        <button class="action-button" id="confirm-hero" type="button" disabled>Confirm hero <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="chooser screen" id="cat-screen" aria-labelledby="cat-title" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Step 02 / 06</p>
+            <h2 id="cat-title">Choose your cat sidekick</h2>
+          </div>
+          <span class="counter" id="cat-counter">0 / 1 picked</span>
+        </div>
+
+        <div class="cat-builder">
+          <div>
+            <div class="breed-grid" role="group" aria-label="Cat breeds">
+              <button class="breed-card is-selected" type="button" data-breed="Russian Blue" aria-pressed="true">
+                <span class="breed-art russian-cat" aria-hidden="true">◒</span>
+                <strong>Russian Blue</strong><small>Short hair · sleek</small>
+              </button>
+              <button class="breed-card" type="button" data-breed="Maine Coon" aria-pressed="false">
+                <span class="breed-art maine-cat" aria-hidden="true">✦</span>
+                <strong>Maine Coon</strong><small>Long hair · fluffy</small>
+              </button>
+              <button class="breed-card" type="button" data-breed="Orange Tabby" aria-pressed="false">
+                <span class="breed-art tabby-cat" aria-hidden="true">☀</span>
+                <strong>Orange Tabby</strong><small>Short hair · sunny</small>
+              </button>
+            </div>
+
+            <div class="customizer-panel">
+              <div class="customizer-heading"><div><p class="eyebrow">Make it yours</p><h3>Pick three fur shades</h3></div><span id="shade-label">Shade 1</span></div>
+              <div class="shade-tabs" role="group" aria-label="Choose which fur shade to edit">
+                <button class="shade-tab is-active" type="button" data-shade="0">Shade 1</button>
+                <button class="shade-tab" type="button" data-shade="1">Shade 2</button>
+                <button class="shade-tab" type="button" data-shade="2">Shade 3</button>
+              </div>
+              <div class="palette" role="group" aria-label="Hyper pop fur colors">
+                <button class="color-swatch is-picked" type="button" data-color="#2d73b9" style="--swatch: #2d73b9" aria-label="Electric blue"></button>
+                <button class="color-swatch" type="button" data-color="#ff4f81" style="--swatch: #ff4f81" aria-label="Hot pink"></button>
+                <button class="color-swatch" type="button" data-color="#ff725e" style="--swatch: #ff725e" aria-label="Pop coral"></button>
+                <button class="color-swatch" type="button" data-color="#ffd84d" style="--swatch: #ffd84d" aria-label="Sun yellow"></button>
+                <button class="color-swatch" type="button" data-color="#a8d86d" style="--swatch: #a8d86d" aria-label="Lime green"></button>
+                <button class="color-swatch" type="button" data-color="#7654a5" style="--swatch: #7654a5" aria-label="Cosmic purple"></button>
+                <button class="color-swatch" type="button" data-color="#7bd3e8" style="--swatch: #7bd3e8" aria-label="Sky blue"></button>
+                <button class="color-swatch" type="button" data-color="#17202a" style="--swatch: #17202a" aria-label="Inky black"></button>
+              </div>
+              <label class="name-field" for="cat-name">Give your cat a name <input id="cat-name" type="text" maxlength="18" placeholder="e.g. Comet" /></label>
+            </div>
+          </div>
+          <div class="cat-preview-wrap"><p class="eyebrow">Your cat</p><div class="cat-preview" id="cat-preview" aria-label="Cat preview"></div><p class="preview-breed" id="preview-breed">Russian Blue</p></div>
+        </div>
+        <div class="selection-message compact-message" id="cat-message" role="status" aria-live="polite"><span class="message-icon" aria-hidden="true">✦</span><span>Pick colors and a name for your sidekick.</span></div>
+        <button class="action-button" id="confirm-cat" type="button" disabled>Confirm cat <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="chooser screen" id="summary-screen" aria-labelledby="summary-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Step 03 / 06</p><h2 id="summary-title">Your adventure team</h2></div><span class="counter">Ready!</span></div>
+        <div class="team-summary">
+          <div class="summary-character"><p class="eyebrow">Your hero</p><img id="summary-hero-image" src="" alt="" /><h3 id="summary-hero-name"></h3></div>
+          <div class="summary-plus" aria-hidden="true">+</div>
+          <div class="summary-character"><p class="eyebrow">Your cat</p><div class="summary-cat" id="summary-cat"></div><h3 id="summary-cat-name"></h3><p id="summary-cat-breed"></p></div>
+        </div>
+        <div class="adventure-message" id="adventure-message" role="status">Your team is waiting for a mission.</div>
+        <button class="action-button start-button" id="start-adventure" type="button">Start our adventure <span aria-hidden="true">★</span></button>
+      </section>
+
+      <section class="chooser screen loading-screen" id="travel-loading" aria-labelledby="travel-title" hidden>
+        <p class="eyebrow">Adventure loading</p>
+        <h2 id="travel-title">Off to the shop!</h2>
+        <div class="loading-stage" aria-hidden="true"><div class="walking-cat"><span class="cat-tail"></span><span class="cat-body"></span><span class="cat-head"></span><span class="cat-leg cat-leg-one"></span><span class="cat-leg cat-leg-two"></span></div></div>
+        <p class="loading-copy" role="status">Your team is on the way...</p>
+      </section>
+
+      <section class="chooser screen" id="shop-screen" aria-labelledby="shop-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Step 04 / 06 · The build shop</p><h2 id="shop-title">Pick your home base</h2></div><div class="shop-totals"><span class="budget" id="shop-budget">$1,000</span><span class="counter" id="reward-value">Reward: X1 × 10</span></div></div>
+        <p class="shop-intro">Choose a place for your hero and cat to call home.</p>
+        <div class="house-grid">
+          <button class="house-card affordable" type="button" data-house="House" data-cost="500" aria-pressed="false"><span class="house-art small-house" aria-hidden="true">⌂</span><strong>House</strong><span>$500</span><small>Just right for starting out</small><b>Pick this one</b></button>
+          <button class="house-card" type="button" data-house="Mansion" data-cost="5000" disabled><span class="house-art mansion-house" aria-hidden="true">♜</span><strong>Mansion</strong><span>$5,000</span><small>Need $4,000 more</small><b>Locked</b></button>
+          <button class="house-card" type="button" data-house="Castle" data-cost="10000" disabled><span class="house-art castle-house" aria-hidden="true">♜</span><strong>Castle</strong><span>$10,000</span><small>Need $9,000 more</small><b>Locked</b></button>
+        </div>
+        <div class="selection-message compact-message" id="house-message" role="status"><span class="message-icon" aria-hidden="true">$</span><span>Choose a home that fits your budget.</span></div>
+        <div class="shop-actions"><button class="action-button" id="build-house" type="button" disabled>Build this house <span aria-hidden="true">→</span></button><button class="action-button secondary-button" id="back-house" type="button">Back to house <span aria-hidden="true">⌂</span></button></div>
+        <div class="powerup-heading"><p class="eyebrow">Power-up shop</p><h3>Make every mission count</h3><p>Each friendly upgrade costs $1,000 and adds 5 to your X.</p></div>
+        <div class="powerup-grid" role="group" aria-label="Power-up upgrades">
+          <button class="powerup-card" type="button" data-powerup="Shield" aria-pressed="false"><span class="powerup-icon shield-icon" aria-hidden="true">◈</span><strong>Shield</strong><small>Stay safe and steady</small><b>$1,000 · +5 X</b></button>
+          <button class="powerup-card" type="button" data-powerup="Cape" aria-pressed="false"><span class="powerup-icon cape-icon" aria-hidden="true">◆</span><strong>Cape</strong><small>Zoom into action</small><b>$1,000 · +5 X</b></button>
+          <button class="powerup-card" type="button" data-powerup="Costume" aria-pressed="false"><span class="powerup-icon costume-icon" aria-hidden="true">✦</span><strong>Costume</strong><small>Look extra heroic</small><b>$1,000 · +5 X</b></button>
+        </div>
+        <div class="selection-message compact-message" id="powerup-message" role="status"><span class="message-icon" aria-hidden="true">+</span><span>Choose a friendly power-up when you have $1,000.</span></div>
+      </section>
+
+      <section class="chooser screen loading-screen" id="build-loading" aria-labelledby="build-title" hidden>
+        <p class="eyebrow">Construction loading</p>
+        <h2 id="build-title">Building your house!</h2>
+        <div class="hammer-stage" aria-hidden="true"><div class="nail"></div><div class="hammer"><span class="hammer-head"></span><span class="hammer-handle"></span></div><div class="wood-plank"></div></div>
+        <p class="loading-copy" role="status">Bonk, bonk, bonk...</p>
+      </section>
+
+      <section class="chooser screen" id="built-screen" aria-labelledby="built-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Home base</p><h2 id="built-title">Your house is built!</h2></div><span class="counter" id="built-balance">$500 bank</span></div>
+        <p class="shop-intro">Welcome home, <strong id="built-house-name">House</strong>! Your team is ready to move in.</p>
+        <div class="house-scene" id="house-scene"><div class="house-roof"></div><div class="house-wall"><div class="house-window"><img id="built-hero-image" src="" alt="" /><div class="built-cat" id="built-cat"></div></div><div class="door"></div></div><div class="house-ground"></div></div>
+        <div class="selection-message compact-message" id="built-message" role="status"><span class="message-icon" aria-hidden="true">♥</span><span><strong id="built-hero-name"></strong> and <strong id="built-cat-name"></strong> have moved in!</span></div>
+        <div class="button-row"><button class="action-button start-button" id="fight-crime" type="button">Fight crime <span aria-hidden="true">⚡</span></button><button class="action-button secondary-button" id="go-shop" type="button" hidden>Go to the shop <span aria-hidden="true">⌂</span></button><button class="action-button secondary-button" id="fight-again" type="button" hidden>Go on another adventure <span aria-hidden="true">→</span></button><button class="action-button start-button" id="save-day" type="button" hidden>Save the day <span aria-hidden="true">★</span></button></div>
+      </section>
+
+      <section class="chooser screen loading-screen" id="crime-loading" aria-labelledby="crime-loading-title" hidden>
+        <p class="eyebrow">Hero launch</p>
+        <h2 id="crime-loading-title">Flying to the trouble!</h2>
+        <div class="flying-stage" aria-hidden="true"><div class="flying-cat"><span class="fly-body"></span><span class="fly-head"></span><span class="fly-tail"></span><span class="fly-cape"></span></div></div>
+        <p class="loading-copy" role="status">Your cat is on patrol...</p>
+      </section>
+
+      <section class="chooser screen crime-screen" id="crime-screen" aria-labelledby="crime-title" hidden>
+        <div class="section-heading"><div><p class="eyebrow">Crime wave · 10 seconds</p><h2 id="crime-title">Tap the bad guys!</h2></div><span class="crime-timer" id="crime-timer">10.0</span></div>
+        <div class="crime-stats"><span>Defeated <strong id="defeated-count">0</strong></span><span>Banked <strong id="crime-bank">$0</strong></span><span>Bad guys <strong id="villain-count">10</strong></span></div>
+        <div class="villain-field" id="villain-field" role="group" aria-label="Bad guys to defeat"></div>
+        <p class="crime-tip">Every tap defeats one bad guy, but two more pop up!</p>
+      </section>
+
+      <section class="chooser screen" id="celebration-screen" aria-labelledby="celebration-title" hidden>
+        <div class="celebration-burst" aria-hidden="true">★</div>
+        <p class="eyebrow">Mission complete</p>
+        <h2 id="celebration-title">You saved the day!</h2>
+        <p class="celebration-copy">The city is safe, your team is famous, and your castle is the coolest place around.</p>
+        <div class="celebration-stars" aria-hidden="true">✦ ★ ✦</div>
+      </section>
+
+      <footer>Made for big imaginations <span aria-hidden="true">✦</span></footer>
+    </main>
+  </body>
+</html>

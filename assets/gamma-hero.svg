@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Gamma hero</title>
+  <desc id="desc">An original public-domain-dedicated illustration of a powerful green gamma hero.</desc>
+  <metadata>Original artwork dedicated to the public domain.</metadata>
+  <circle cx="120" cy="120" r="112" fill="#7654a5" stroke="#17202a" stroke-width="8"/>
+  <path d="M64 190l18-64q-11-14-8-31 5-27 46-27t46 27q3 17-8 31l18 64z" fill="#a8d86d" stroke="#17202a" stroke-width="8"/>
+  <path d="M84 151h72M75 177h90" stroke="#17202a" stroke-width="11" stroke-linecap="round"/>
+  <path d="M91 105q29-22 58 0v47H91z" fill="#a8d86d" stroke="#17202a" stroke-width="7"/>
+  <circle cx="105" cy="95" r="7" fill="#17202a"/><circle cx="135" cy="95" r="7" fill="#17202a"/>
+  <path d="M98 116q22 12 44 0" fill="none" stroke="#17202a" stroke-width="6" stroke-linecap="round"/>
+</svg>
