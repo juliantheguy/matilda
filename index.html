@@ -29,11 +29,11 @@
         </div>
 
         <div class="hero-grid">
-          <button class="hero-card spider" type="button" data-hero="Spider-Man" aria-pressed="false">
+          <button class="hero-card gwendolyn" type="button" data-hero="Gwendolyn" aria-pressed="false">
             <span class="card-number">01</span>
             <span class="hero-art spider-art" aria-hidden="true"><span>✦</span></span>
-            <span class="hero-name">Spider-Man</span>
-            <span class="hero-power">Wall-crawling wonder</span>
+            <span class="hero-name">Gwendolyn</span>
+            <span class="hero-power">Spider-powered hero</span>
             <span class="pick-label">Choose me</span>
           </button>
 
@@ -45,11 +45,11 @@
             <span class="pick-label">Choose me</span>
           </button>
 
-          <button class="hero-card hulk" type="button" data-hero="The Hulk" aria-pressed="false">
+          <button class="hero-card captain" type="button" data-hero="Captain Marvel" aria-pressed="false">
             <span class="card-number">03</span>
-            <span class="hero-art hulk-art" aria-hidden="true"><span>✹</span></span>
-            <span class="hero-name">The Hulk</span>
-            <span class="hero-power">Super-strength smash</span>
+            <span class="hero-art captain-art" aria-hidden="true"><span>✹</span></span>
+            <span class="hero-name">Captain Marvel</span>
+            <span class="hero-power">Cosmic courage</span>
             <span class="pick-label">Choose me</span>
           </button>
         </div>
@@ -148,6 +148,13 @@
           <button class="powerup-card" type="button" data-powerup="Costume" aria-pressed="false"><span class="powerup-icon costume-icon" aria-hidden="true">✦</span><strong>Costume</strong><small>Look extra heroic</small><b>$1,000 · +5 X</b></button>
         </div>
         <div class="selection-message compact-message" id="powerup-message" role="status"><span class="message-icon" aria-hidden="true">+</span><span>Choose a friendly power-up when you have $1,000.</span></div>
+        <div class="powerup-heading accessory-heading"><p class="eyebrow">Accessories shop</p><h3>Decorate your home</h3><p>Each accessory costs $3,000 and adds no score.</p></div>
+        <div class="powerup-grid" role="group" aria-label="House accessories">
+          <button class="powerup-card accessory-card" type="button" data-accessory="Flag" aria-pressed="false"><span class="powerup-icon flag-icon" aria-hidden="true">⚑</span><strong>Flag</strong><small>Fly it above your house</small><b>$3,000</b></button>
+          <button class="powerup-card accessory-card" type="button" data-accessory="Dog" aria-pressed="false"><span class="powerup-icon dog-icon" aria-hidden="true">🐶</span><strong>Dog</strong><small>Keep watch in the front yard</small><b>$3,000</b></button>
+          <button class="powerup-card accessory-card" type="button" data-accessory="Car" aria-pressed="false"><span class="powerup-icon car-icon" aria-hidden="true">🚙</span><strong>Car</strong><small>Park it by your house</small><b>$3,000</b></button>
+        </div>
+        <div class="selection-message compact-message" id="accessory-message" role="status"><span class="message-icon" aria-hidden="true">⌂</span><span>Choose an accessory when you have $3,000.</span></div>
       </section>
 
       <section class="chooser screen loading-screen" id="build-loading" aria-labelledby="build-title" hidden>
@@ -160,7 +167,7 @@
       <section class="chooser screen" id="built-screen" aria-labelledby="built-title" hidden>
         <div class="section-heading"><div><p class="eyebrow">Home base</p><h2 id="built-title">Your house is built!</h2></div><span class="counter" id="built-balance">$500 bank</span></div>
         <p class="shop-intro">Welcome home, <strong id="built-house-name">House</strong>! Your team is ready to move in.</p>
-        <div class="house-scene" id="house-scene"><div class="house-roof"></div><div class="house-wall"><div class="house-window"><img id="built-hero-image" src="" alt="" /><div class="built-cat" id="built-cat"></div></div><div class="door"></div></div><div class="house-ground"></div></div>
+        <div class="house-scene" id="house-scene"><div class="house-roof"></div><div class="house-wall"><div class="house-window"><img id="built-hero-image" src="" alt="" /><div class="built-cat" id="built-cat"></div></div><div class="door"></div></div><div class="house-ground"></div><span class="built-accessory built-flag" data-accessory="Flag" aria-label="Flag above the house" hidden>⚑</span><span class="built-accessory built-dog" data-accessory="Dog" aria-label="Dog in the front yard" hidden>🐶</span><span class="built-accessory built-car" data-accessory="Car" aria-label="Car by the house" hidden>🚙</span></div>
         <div class="selection-message compact-message" id="built-message" role="status"><span class="message-icon" aria-hidden="true">♥</span><span><strong id="built-hero-name"></strong> and <strong id="built-cat-name"></strong> have moved in!</span></div>
         <div class="button-row"><button class="action-button start-button" id="fight-crime" type="button">Fight crime <span aria-hidden="true">⚡</span></button><button class="action-button secondary-button" id="go-shop" type="button" hidden>Go to the shop <span aria-hidden="true">⌂</span></button><button class="action-button secondary-button" id="fight-again" type="button" hidden>Go on another adventure <span aria-hidden="true">→</span></button><button class="action-button start-button" id="save-day" type="button" hidden>Save the day <span aria-hidden="true">★</span></button></div>
       </section>

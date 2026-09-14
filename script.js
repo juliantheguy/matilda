@@ -3,9 +3,9 @@ const message = document.querySelector("#selection-message");
 const counter = document.querySelector("#counter");
 const confirmHeroButton = document.querySelector("#confirm-hero");
 const heroImages = {
-  "Spider-Man": "assets/web-hero.svg",
+  Gwendolyn: "assets/web-hero.svg",
   "Wonder Woman": "assets/star-hero.svg",
-  "The Hulk": "assets/gamma-hero.svg",
+  "Captain Marvel": "assets/star-hero.svg",
 };
 
 const state = {
@@ -22,6 +22,7 @@ const state = {
   crimeActive: false,
   xValue: 1,
   powerups: [],
+  accessories: [],
 };
 
 const screens = document.querySelectorAll(".screen");
@@ -32,6 +33,7 @@ const shadeTabs = document.querySelectorAll(".shade-tab");
 const breedCards = document.querySelectorAll(".breed-card");
 const houseCards = document.querySelectorAll(".house-card");
 const powerupCards = document.querySelectorAll(".powerup-card");
+const accessoryCards = document.querySelectorAll(".accessory-card");
 const catNameInput = document.querySelector("#cat-name");
 const confirmCatButton = document.querySelector("#confirm-cat");
 const buildHouseButton = document.querySelector("#build-house");
@@ -72,12 +74,21 @@ function refreshShop() {
   });
   buildHouseButton.disabled = true;
   powerupCards.forEach((card) => {
+    if (card.classList.contains("accessory-card")) return;
     const isOwned = state.powerups.includes(card.dataset.powerup);
     const canAfford = state.balance >= 1000;
     card.disabled = isOwned || !canAfford;
     card.classList.toggle("is-owned", isOwned);
     card.setAttribute("aria-pressed", String(isOwned));
     card.querySelector("b").textContent = isOwned ? "Owned · X boosted" : canAfford ? "$1,000 · +5 X" : `Need ${formatMoney(1000 - state.balance)} more`;
+  });
+  accessoryCards.forEach((card) => {
+    const isOwned = state.accessories.includes(card.dataset.accessory);
+    const canAfford = state.balance >= 3000;
+    card.disabled = isOwned || !canAfford;
+    card.classList.toggle("is-owned", isOwned);
+    card.setAttribute("aria-pressed", String(isOwned));
+    card.querySelector("b").textContent = isOwned ? "Owned · No score impact" : canAfford ? "$3,000" : `Need ${formatMoney(3000 - state.balance)} more`;
   });
 }
 
@@ -98,6 +109,9 @@ function updateBuiltScreen() {
   const houseScene = document.querySelector("#house-scene");
   houseScene.classList.remove("house-house", "house-mansion", "house-castle");
   houseScene.classList.add(`house-${state.house.toLowerCase()}`);
+  houseScene.querySelectorAll(".built-accessory").forEach((accessory) => {
+    accessory.hidden = !state.accessories.includes(accessory.dataset.accessory);
+  });
   renderCat(document.querySelector("#built-cat"));
 }
 
@@ -327,6 +341,7 @@ backHouseButton.addEventListener("click", () => {
 saveDayButton.addEventListener("click", () => showScreen("celebration-screen"));
 
 powerupCards.forEach((card) => {
+  if (card.classList.contains("accessory-card")) return;
   card.addEventListener("click", () => {
     const powerup = card.dataset.powerup;
     if (state.powerups.includes(powerup) || state.balance < 1000) return;
@@ -335,6 +350,18 @@ powerupCards.forEach((card) => {
     state.powerups.push(powerup);
     refreshShop();
     document.querySelector("#powerup-message span:last-child").textContent = `${powerup} unlocked! Every bad guy is now worth ${state.xValue * 10}.`;
+  });
+});
+
+accessoryCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    const accessory = card.dataset.accessory;
+    if (state.accessories.includes(accessory) || state.balance < 3000) return;
+    state.balance -= 3000;
+    state.accessories.push(accessory);
+    refreshShop();
+    document.querySelector("#accessory-message span:last-child").textContent = `${accessory} added to your house! It does not affect your score.`;
+    updateBuiltScreen();
   });
 });
 
